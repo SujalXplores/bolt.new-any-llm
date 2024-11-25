@@ -62,7 +62,7 @@ export function streamText(messages: Messages, env: Env, options?: StreamingOpti
 
   const modelDetails = MODEL_LIST.find((m) => m.name === currentModel);
 
-  const dynamicMaxTokens = modelDetails && modelDetails.maxTokenAllowed ? modelDetails.maxTokenAllowed : MAX_TOKENS;
+  const dynamicMaxTokens = modelDetails?.maxTokenAllowed ?? MAX_TOKENS;
 
   return _streamText({
     model: getModel(currentProvider, currentModel, env, apiKeys),
